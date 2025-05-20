@@ -8,6 +8,7 @@ import Error from '../Pages/Error';
 import AddRecipe from '../Pages/AddRecipe';
 import AllRecipes from '../Pages/AllRecipes';
 import RecipeDetails from '../Pages/RecipeDetails';
+import MyRecipe from '../Pages/MyRecipe';
 
 export const router = createBrowserRouter([
     {
@@ -40,6 +41,11 @@ export const router = createBrowserRouter([
                 loader:({params})=>fetch(`http://localhost:3000/recipes/${params.id}`),
                 
                 element:<RecipeDetails></RecipeDetails>
+            },
+            {
+                path:'myRecipes',
+                loader:()=>fetch('http://localhost:3000/recipes'),
+                element:<MyRecipe></MyRecipe>
             }
         ]
     },

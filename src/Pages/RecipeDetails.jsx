@@ -1,10 +1,14 @@
-import React, { useState } from "react";
-import { FcLike } from "react-icons/fc";
+import React, { use, useEffect, useState } from "react";
+
+
 import { useLoaderData, useParams } from "react-router";
+import { AuthContext } from "../Provider/AuthProvider";
 
 const RecipeDetails = () => {
   const { id } = useParams();
-  console.log(id);
+//   console.log(id);
+const {user}= use(AuthContext)
+console.log(user?.email);
   const {
     image,
     title,
@@ -20,9 +24,26 @@ const RecipeDetails = () => {
   const [likes, setLikes] = useState(likeCount);
 
   const handleLike = () => {
-    setLikes(likes + 1);
-    // Optionally: update DB here with a PUT/PATCH request
+    if(email == user?.email){
+        return 
+    }
+ else{
+
+     setLikes(likes + 1);
+     fetch(`http://localhost:3000/recipes/${id}`, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ likeCount: likes }),
+        })
+            .then((res) => res.json())
+            .then((data) => console.log(data));
+ }
+    
   };
+    
+ 
 
   return (
     <div>
@@ -55,12 +76,11 @@ const RecipeDetails = () => {
           <h3 className="text-xl font-semibold">Instructions</h3>
           <p>{instructions}</p>
         </div>
-        <button 
-          onClick={handleLike}
-          className="bg-blue-100 hover:bg-pink-600 text-white px-4 py-2 rounded"
-        >
-           Like ({likes})
-        </button>
+       <button onClick={handleLike}
+        // disabled={email == user?.email}
+       className="btn btn-soft border-blue-300 rounded-2xl px-4 py-0 hover:text-white btn-info flex items-center gap-1">
+         Like {likes} 
+       </button>
       </div>
     </div>
   );

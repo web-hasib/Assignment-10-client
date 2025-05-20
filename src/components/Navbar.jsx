@@ -30,7 +30,7 @@ const Navbar = () => {
         {" "}
         Add Recipe 
       </NavLink>
-      <NavLink className="hover:text-black hover:font-bold" to="/my-profile">
+      <NavLink className="hover:text-black hover:font-bold" to="/myRecipes">
         {" "}
         My Recipes
       </NavLink>
