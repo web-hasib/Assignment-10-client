@@ -2,6 +2,7 @@ import React, { use } from "react";
 import { useNavigate } from "react-router";
 import Swal from "sweetalert2";
 import { AuthContext } from "../Provider/AuthProvider";
+import { Slide } from "react-awesome-reveal";
 
 const AddRecipe = () => {
   const navigate = useNavigate();
@@ -77,6 +78,8 @@ const AddRecipe = () => {
   };
 
   return (
+    <Slide>
+
     <div className="p-6 md:p-12">
       <div className="text-center space-y-4">
         <h1 className="text-4xl md:text-5xl font-bold">Add New Recipe</h1>
@@ -139,6 +142,7 @@ const AddRecipe = () => {
         </button>
       </form>
     </div>
+    </Slide>
   );
 };
 

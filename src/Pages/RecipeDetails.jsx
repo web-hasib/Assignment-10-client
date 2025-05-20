@@ -1,9 +1,10 @@
-import React, { use,  useState } from "react";
+import React, { use, useState } from "react";
 
 import { Link, useLoaderData, useNavigate, useParams } from "react-router";
 import { AuthContext } from "../Provider/AuthProvider";
-
-
+import { FaEdit } from "react-icons/fa";
+import { MdDeleteOutline } from "react-icons/md";
+import Swal from "sweetalert2";
 
 const RecipeDetails = () => {
   const { id } = useParams();
@@ -41,29 +42,50 @@ const RecipeDetails = () => {
         .then((data) => console.log(data));
     }
   };
-  
-    const handleDelete = (id) => {
-        // console.log(id);
-        // Swal.success("Deleted successfully");
+
+  const handleDelete = (id) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
         fetch(`http://localhost:3000/recipes/${id}`, {
-        method: "DELETE",
+          method: "DELETE",
         })
-        .then((res) => res.json())
-        .then((data) => {
+          .then((res) => res.json())
+          .then((data) => {
             if (data.deletedCount > 0) {
-            alert("Deleted successfully");
-            nevigate(-1);
+              Swal.fire({
+                title: "Deleted!",
+                text: "Your file has been deleted.",
+                icon: "success",
+              });
+              nevigate(-1);
             }
-        });
-    };
+          });
+      }
+    });
+  };
 
   return (
     <div>
       <div className="p-6 max-w-7xl mx-auto rounded-lg space-y-6">
+        <div>
+            {
+                likes > 0 && <div className="text-center text-xl font-bold text-pink-300">
+                    ({likes}) people interested in this recipe
+                </div>
+            }
+        </div>
         <img
           src={image}
           alt={title}
-          className="w-full h-64 object-cover rounded-md"
+          className="w-full h-64 md:h-[600px] object-cover rounded-md"
         />
         <h2 className="text-3xl font-bold">{title}</h2>
         <p>
@@ -90,11 +112,21 @@ const RecipeDetails = () => {
         </div>
 
         {userEmail == email ? (
-            <div className="flex items-center gap-1 justify-around">
-               <p className="text-gray-500 font-bold">Like count :  {likes}</p>
-               <Link to={`/update/${id}`}>Edit</Link>
-               <button onClick={()=>handleDelete(id)}>delete</button>
-            </div>
+          <div className="flex items-center gap-1 justify-around">
+            <p className="text-gray-500 font-bold">Like count : {likes}</p>
+            <Link
+              className="btn rounded-full mx-auto py-7 bg-blue-50 hover:bg-blue-400 hover:text-white "
+              to={`/update/${id}`}
+            >
+              <FaEdit size={25} />
+            </Link>
+            <button
+              className="btn rounded-full mx-auto py-7 bg-blue-50 hover:bg-red-400 hover:text-white "
+              onClick={() => handleDelete(id)}
+            >
+              <MdDeleteOutline size={25} />
+            </button>
+          </div>
         ) : (
           <button
             onClick={handleLike}

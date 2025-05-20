@@ -5,6 +5,7 @@ import { Link, useNavigate } from "react-router";
 // import { Helmet } from "react-helmet";
 // import { toast } from "react-toastify";
 import { AuthContext } from "./../Provider/AuthProvider";
+import { Slide } from "react-awesome-reveal";
 
 const Login = () => {
   const { loginWithGoogle, logIn } = use(AuthContext);
@@ -40,6 +41,8 @@ const Login = () => {
       .catch((error) => alert(error.message));
   };
   return (
+    <Slide direction="right">
+
     <div className="my-10">
       {/* <Helmet>
       <title>
@@ -100,6 +103,7 @@ const Login = () => {
         </div>
       </div>
     </div>
+    </Slide>
   );
 };
 
