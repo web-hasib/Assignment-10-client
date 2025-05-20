@@ -1,14 +1,16 @@
-import React, { use, useEffect, useState } from "react";
+import React, { use,  useState } from "react";
 
-
-import { useLoaderData, useParams } from "react-router";
+import { Link, useLoaderData, useNavigate, useParams } from "react-router";
 import { AuthContext } from "../Provider/AuthProvider";
+
+
 
 const RecipeDetails = () => {
   const { id } = useParams();
-//   console.log(id);
-const {user}= use(AuthContext)
-console.log(user?.email);
+  const nevigate = useNavigate();
+  //   console.log(id);
+  const { user } = use(AuthContext);
+  const userEmail = user?.email;
   const {
     image,
     title,
@@ -24,26 +26,36 @@ console.log(user?.email);
   const [likes, setLikes] = useState(likeCount);
 
   const handleLike = () => {
-    if(email == user?.email){
-        return 
+    if (email == userEmail) {
+      return;
+    } else {
+      setLikes(likes + 1);
+      fetch(`http://localhost:3000/recipes/${id}`, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ likeCount: likes }),
+      })
+        .then((res) => res.json())
+        .then((data) => console.log(data));
     }
- else{
-
-     setLikes(likes + 1);
-     fetch(`http://localhost:3000/recipes/${id}`, {
-            method: "PATCH",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({ likeCount: likes }),
-        })
-            .then((res) => res.json())
-            .then((data) => console.log(data));
- }
-    
   };
-    
- 
+  
+    const handleDelete = (id) => {
+        // console.log(id);
+        // Swal.success("Deleted successfully");
+        fetch(`http://localhost:3000/recipes/${id}`, {
+        method: "DELETE",
+        })
+        .then((res) => res.json())
+        .then((data) => {
+            if (data.deletedCount > 0) {
+            alert("Deleted successfully");
+            nevigate(-1);
+            }
+        });
+    };
 
   return (
     <div>
@@ -76,11 +88,22 @@ console.log(user?.email);
           <h3 className="text-xl font-semibold">Instructions</h3>
           <p>{instructions}</p>
         </div>
-       <button onClick={handleLike}
-        // disabled={email == user?.email}
-       className="btn btn-soft border-blue-300 rounded-2xl px-4 py-0 hover:text-white btn-info flex items-center gap-1">
-         Like {likes} 
-       </button>
+
+        {userEmail == email ? (
+            <div className="flex items-center gap-1 justify-around">
+               <p className="text-gray-500 font-bold">Like count :  {likes}</p>
+               <Link to={`/update/${id}`}>Edit</Link>
+               <button onClick={()=>handleDelete(id)}>delete</button>
+            </div>
+        ) : (
+          <button
+            onClick={handleLike}
+            // disabled={email == user?.email}
+            className="btn btn-soft border-blue-300 rounded-2xl px-4 py-0 hover:text-white btn-info flex items-center gap-1"
+          >
+            Like {likes}
+          </button>
+        )}
       </div>
     </div>
   );
