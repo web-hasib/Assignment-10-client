@@ -1,30 +1,43 @@
-import React from 'react';
-import { NavLink } from 'react-router';
+import React, { use } from 'react';
+import { Link, NavLink } from 'react-router';
+import { AuthContext } from '../Provider/AuthProvider';
 
 {/* <img src="https://i.ibb.co/jvscyq8R/2-removebg-preview.png" alt="" /> */}
 const Navbar = () => {
+  const {user,logOut}= use(AuthContext)
+  // console.log(user?.email);
+  const handleLogOut = () => {
+    // console.log('user trying to log out');
+    logOut().then(() => {
+        // Sign-out successful.
+        alert('you logged out successfully')
+      }).catch((error) => {
+        // An error happened.
+        alert(error.message);
+      });
+  };
      const links = (
     <>
       <NavLink className="hover:text-black hover:font-bold" to="/">
         {" "}
         Home
       </NavLink>
-      <NavLink className="hover:text-black hover:font-bold" to="/my-profile">
+      <NavLink className="hover:text-black hover:font-bold" to="/allRecipes">
         {" "}
         All Recipes
       </NavLink>
-      {/* <NavLink className="hover:text-black hover:font-bold" to="/my-profile">
+      <NavLink className="hover:text-black hover:font-bold" to="/addRecipe">
         {" "}
         Add Recipe 
       </NavLink>
       <NavLink className="hover:text-black hover:font-bold" to="/my-profile">
         {" "}
         My Recipes
-      </NavLink> */}
+      </NavLink>
     </>
   );
   return (
-    <div className=" navbar">
+    <div className=" navbar max-w-7xl mx-auto">
       <div className="navbar-start">
         <div className="dropdown">
           <div
@@ -61,8 +74,8 @@ const Navbar = () => {
             src="https://i.ibb.co/jvscyq8R/2-removebg-preview.png"
             alt=""
           />
-          <a href="/" className="font-bold md:text-3xl text-yellow-600">
-            Recipe <span className="text-blue-800">Book</span>
+          <a href="/" className="font-bold text-lg md:text-3xl text-blue-400">
+            Recipe <span className="text-gray-600 text-xs md:text-lg">Book</span>
           </a>
         </div>
       </div>
@@ -73,9 +86,9 @@ const Navbar = () => {
       </div>
       <div className="navbar-end gap-5">
        
-        {/* {user?.photoURL && (
+        {user?.photoURL && (
      
-          <div onClick={openProfiel} className="relative group inline-block">
+          <div  className="relative group inline-block">
             <img
               className="w-8 h-8 rounded-full object-cover"
               src={user.photoURL}
@@ -85,9 +98,9 @@ const Navbar = () => {
               {user.displayName}
             </div>
           </div>
-        )} */}
+        )}
 
-        {/* {user ? (
+        {user ? (
           <button onClick={handleLogOut} className="btn btn-soft border-blue-300 rounded-2xl px-7 hover:text-white btn-info">
             LogOut
           </button>
@@ -95,7 +108,7 @@ const Navbar = () => {
           <Link to="/login" className="btn btn-soft border-blue-300 rounded-2xl px-7 hover:text-white btn-info">
             Login
           </Link>
-        )} */}
+        )}
       </div>
     </div>
   );
