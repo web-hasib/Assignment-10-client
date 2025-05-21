@@ -1,5 +1,6 @@
 import React from 'react';
 import { useLoaderData, useNavigate } from 'react-router';
+import Swal from 'sweetalert2';
 
 const UpdateRecipe = () => {
     const recipe = useLoaderData();
@@ -41,7 +42,16 @@ const UpdateRecipe = () => {
         .then(res => res.json())
         .then(data => {
             if (data.modifiedCount > 0) {
-                alert('Recipe updated successfully');
+              
+              Swal.fire({
+  position: "top-end",
+  icon: "success",
+  title: `Recipe updated successfully`,
+  text: "Your recipe has been updated.",
+  showConfirmButton: false,
+  timer: 1500
+});
+              
                 form.reset();
                 nevigate(-1);
             }

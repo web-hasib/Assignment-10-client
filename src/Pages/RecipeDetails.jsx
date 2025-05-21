@@ -27,7 +27,7 @@ const RecipeDetails = () => {
   const [likes, setLikes] = useState(likeCount);
 
   const handleLike = () => {
-    if (email == userEmail) {
+    if ( user && email == userEmail ) {
       return;
     } else {
       setLikes(likes + 1);
@@ -111,7 +111,7 @@ const RecipeDetails = () => {
           <p>{instructions}</p>
         </div>
 
-        {userEmail == email ? (
+        {user && userEmail == email ? (
           <div className="flex items-center gap-1 justify-around">
             <p className="text-gray-500 font-bold">Like count : {likes}</p>
             <Link
@@ -128,13 +128,18 @@ const RecipeDetails = () => {
             </button>
           </div>
         ) : (
-          <button
+         <div className="flex items-center gap-5">
+           <button
             onClick={handleLike}
             // disabled={email == user?.email}
             className="btn btn-soft border-blue-300 rounded-2xl px-4 py-0 hover:text-white btn-info flex items-center gap-1"
           >
             Like {likes}
           </button>
+          <button className="btn btn-soft border-blue-300 rounded-2xl px-4 py-0 hover:text-white btn-info flex items-center gap-1">
+            add to wishList
+          </button>
+         </div>
         )}
       </div>
     </div>

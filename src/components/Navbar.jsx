@@ -1,6 +1,7 @@
 import React, { use } from 'react';
 import { Link, NavLink } from 'react-router';
 import { AuthContext } from '../Provider/AuthProvider';
+import Swal from 'sweetalert2';
 
 {/* <img src="https://i.ibb.co/jvscyq8R/2-removebg-preview.png" alt="" /> */}
 const Navbar = () => {
@@ -10,10 +11,16 @@ const Navbar = () => {
     // console.log('user trying to log out');
     logOut().then(() => {
         // Sign-out successful.
-        alert('you logged out successfully')
+        Swal.fire({
+  position: "top-end",
+  icon: "success",
+  title: `Log out successfully`,
+  showConfirmButton: false,
+  timer: 1500
+});
       }).catch((error) => {
         // An error happened.
-        alert(error.message);
+        Swal.fire(error.message);
       });
   };
      const links = (
@@ -33,6 +40,10 @@ const Navbar = () => {
       <NavLink className="hover:text-black hover:font-bold" to="/myRecipes">
         {" "}
         My Recipes
+      </NavLink>
+      <NavLink className="hover:text-black hover:font-bold" to="/about">
+        {" "}
+        About
       </NavLink>
     </>
   );

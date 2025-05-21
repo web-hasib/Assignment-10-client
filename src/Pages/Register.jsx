@@ -4,6 +4,7 @@ import { Link, useLocation, useNavigate } from "react-router";
 // import { Helmet } from "react-helmet";
 // import { toast } from "react-toastify";
 import { AuthContext } from './../Provider/AuthProvider';
+import Swal from "sweetalert2";
 // import { use } from "react";
 
 const Register = () => {
@@ -52,6 +53,21 @@ const Register = () => {
 
   createUser(email,password).then((res)=>{
     const user = res.user
+
+    // add data to database
+    fetch('http://localhost:3000/users',{
+      method: 'POST',
+      headers:{
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify({
+        name,
+        email,
+        image
+      })
+    })
+    
+
     console.log(user);
     updateUser({displayName: name , photoURL: image}).then(()=>{
       // setUser(user)
@@ -60,15 +76,32 @@ const Register = () => {
       navigate('/')
     })
     .catch((error)=>{
-    //   toast.error(error.message);
+      Swal.fire({
+        icon: 'error', 
+        title: 'Oops...',
+        text: error.message,
+        footer: '<a href="">Why do I have this issue?</a>'
+      })
+      //
       setUser(user)
     })
     setUser(user)
-    alert(`thanks for joining us ${name}`)
+    // alert(`thanks for joining us ${name}`)
+      Swal.fire({
+        icon: 'success', 
+        title: `Thanks for joining us ${name}`,
+        
+       
+      })
 
   }).catch((error)=>{
     // toast.error(error.message);
-    alert(error.message)
+     Swal.fire({
+        icon: 'error', 
+        title: 'Oops...',
+        text: error.message,
+        footer: '<a href="">Why do I have this issue?</a>'
+      })
   });
 
     // console.log(name,image,email,password);
@@ -77,8 +110,22 @@ const Register = () => {
 // console.log(createUser);
   const handleGoogleLogin= ()=>{
       loginWithGoogle()
-      .then((res) => alert('Login success !'))
-      .catch((error) => alert(error.message));
+      .then((res) => {
+        Swal.fire({
+        icon: 'success', 
+        title: 'Thanks for joining us',
+        text: 'login successfully',
+       
+      })
+      })
+      .catch((error) => {
+         Swal.fire({
+        icon: 'error', 
+        title: 'Oops...',
+        text: error.message,
+        footer: '<a href="">Why do I have this issue?</a>'
+      })
+      });
   }
   return (
     <div className="my-10 ">

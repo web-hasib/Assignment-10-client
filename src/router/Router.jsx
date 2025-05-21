@@ -11,6 +11,7 @@ import RecipeDetails from '../Pages/RecipeDetails';
 import MyRecipe from '../Pages/MyRecipe';
 import UpdateRecipe from '../Pages/UpdateRecipe';
 import PrivateRoute from '../Provider/PrivateRoute';
+import About from '../Pages/About';
 
 export const router = createBrowserRouter([
     {
@@ -59,6 +60,10 @@ export const router = createBrowserRouter([
                 element:<PrivateRoute>
                     <UpdateRecipe></UpdateRecipe>
                 </PrivateRoute>
+            },
+            {
+                path:'about',
+                element:<About></About>
             }
         ]
     },
