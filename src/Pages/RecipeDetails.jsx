@@ -128,18 +128,20 @@ const RecipeDetails = () => {
             </button>
           </div>
         ) : (
-         <div className="flex items-center gap-5">
-           <button
+          <button
             onClick={handleLike}
             // disabled={email == user?.email}
             className="btn btn-soft border-blue-300 rounded-2xl px-4 py-0 hover:text-white btn-info flex items-center gap-1"
           >
             Like {likes}
           </button>
-          <button className="btn btn-soft border-blue-300 rounded-2xl px-4 py-0 hover:text-white btn-info flex items-center gap-1">
-            add to wishList
-          </button>
-         </div>
+        //  <div className="flex items-center gap-5">
+        //   <button onClick={()=>{
+            
+        //   }} className="btn btn-soft border-blue-300 rounded-2xl px-4 py-0 hover:text-white btn-info flex items-center gap-1">
+        //     add to wishList
+        //   </button>
+        //  </div>
         )}
       </div>
     </div>
