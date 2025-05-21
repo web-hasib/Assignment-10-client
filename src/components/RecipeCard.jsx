@@ -8,7 +8,7 @@ const RecipeCard = ({recipe}) => {
     <div>
       <div className="card bg-white/80 shadow-sm h-full">
         <figure>
-          <img className="max-h-60 w-full object-cover rounded-t-lg"
+          <img className="h-96 max-h-60 md:h-52 w-full object-cover rounded-t-lg"
             src={image}
             alt={title}
           />
@@ -24,7 +24,8 @@ const RecipeCard = ({recipe}) => {
           <div className="card-actions justify-between items-center">
             <div className="flex  items-center gap-1">
                 <FcLike /> {likeCount}</div>
-            <Link to={`/recipes/${_id}`}  className="btn btn-soft border-blue-300 rounded-2xl px-4 py-0 hover:text-white btn-info ">Details</Link>
+            <Link to={`/recipes/${_id}`}  className="btn bg-green-200
+         border-green-300 rounded-2xl px-5 hover:text-white hover:bg-green-400">Details</Link>
           </div>
         </div>
       </div>

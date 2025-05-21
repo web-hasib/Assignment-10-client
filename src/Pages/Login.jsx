@@ -1,5 +1,5 @@
 import React, { use } from "react";
-import { Link, useNavigate } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 // import { Link, useLocation, useNavigate } from "react-router";
 // import { AuthContext } from "../provider/AuthProvider";
 // import { Helmet } from "react-helmet";
@@ -9,9 +9,9 @@ import { Slide } from "react-awesome-reveal";
 
 const Login = () => {
   const { loginWithGoogle, logIn } = use(AuthContext);
-  //   const location = useLocation();
+    const location = useLocation();
   const Navigate = useNavigate();
-  //   // console.log(location);
+    console.log(location);
   const handleSubmit = (e) => {
     e.preventDefault();
     const form = e.target;

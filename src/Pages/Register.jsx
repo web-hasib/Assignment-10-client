@@ -1,5 +1,5 @@
 import React, {  use, useContext, useState } from "react";
-import { Link, useNavigate } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 // import { AuthContext } from "../provider/AuthProvider";
 // import { Helmet } from "react-helmet";
 // import { toast } from "react-toastify";
@@ -10,6 +10,7 @@ const Register = () => {
 
   const {createUser,setUser,updateUser,loginWithGoogle} =use(AuthContext)
 // const {createUser,user}= use(AuthContext);
+
   const [nameError, setNameError] = useState('')
   const [passError, setPassError] = useState('')
   const navigate = useNavigate()

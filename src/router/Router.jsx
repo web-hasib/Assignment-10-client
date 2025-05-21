@@ -10,6 +10,7 @@ import AllRecipes from '../Pages/AllRecipes';
 import RecipeDetails from '../Pages/RecipeDetails';
 import MyRecipe from '../Pages/MyRecipe';
 import UpdateRecipe from '../Pages/UpdateRecipe';
+import PrivateRoute from '../Provider/PrivateRoute';
 
 export const router = createBrowserRouter([
     {
@@ -31,7 +32,9 @@ export const router = createBrowserRouter([
             },
             {
                 path:'addRecipe',
-                element:<AddRecipe></AddRecipe>
+                element:<PrivateRoute>
+                    <AddRecipe></AddRecipe>
+                </PrivateRoute>
             },
             {
                 path:'allRecipes',
@@ -47,11 +50,15 @@ export const router = createBrowserRouter([
             {
                 path:'myRecipes',
                 loader:()=>fetch('http://localhost:3000/recipes'),
-                element:<MyRecipe></MyRecipe>
+                element:<PrivateRoute>
+                    <MyRecipe></MyRecipe>
+                </PrivateRoute>
             },{
                 path:'update/:id',
                 loader:({params})=>fetch(`http://localhost:3000/recipes/${params.id}`),
-                element:<UpdateRecipe></UpdateRecipe>
+                element:<PrivateRoute>
+                    <UpdateRecipe></UpdateRecipe>
+                </PrivateRoute>
             }
         ]
     },
