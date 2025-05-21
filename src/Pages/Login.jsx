@@ -7,6 +7,7 @@ import { Link, useLocation, useNavigate } from "react-router";
 import { AuthContext } from "./../Provider/AuthProvider";
 import { Slide } from "react-awesome-reveal";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet";
 
 const Login = () => {
   const { loginWithGoogle, logIn } = use(AuthContext);
@@ -67,6 +68,9 @@ const Login = () => {
   };
   return (
     <Slide direction="right">
+       <Helmet>
+        <title>RecipeBook || Login</title>
+      </Helmet>
       <div className="my-10">
         {/* <Helmet>
       <title>

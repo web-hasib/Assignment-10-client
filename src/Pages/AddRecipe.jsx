@@ -3,6 +3,7 @@ import { useNavigate } from "react-router";
 import Swal from "sweetalert2";
 import { AuthContext } from "../Provider/AuthProvider";
 import { Slide } from "react-awesome-reveal";
+import { Helmet } from "react-helmet";
 
 const AddRecipe = () => {
   const navigate = useNavigate();
@@ -51,8 +52,8 @@ const AddRecipe = () => {
           icon: "success",
           confirmButtonText: "OK",
         });
-        // form.reset();
-        // navigate("/");
+        form.reset();
+        navigate("/");
       } else {
         Swal.fire({
           title: "Error!",
@@ -65,20 +66,13 @@ const AddRecipe = () => {
 
 
 
-    // Success Alert
-    // Swal.fire({
-    //   title: "Success!",
-    //   text: "Recipe added successfully!",
-    //   icon: "success",
-    //   confirmButtonText: "OK",
-    // });
-
-    // form.reset();
-    // navigate("/"); // redirect
   };
 
   return (
     <Slide>
+       <Helmet>
+        <title>RecipeBook || Add new </title>
+      </Helmet>
 
     <div className="p-6 md:p-12">
       <div className="text-center space-y-4">

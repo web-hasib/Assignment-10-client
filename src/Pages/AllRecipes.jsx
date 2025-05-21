@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { NavLink, useLoaderData } from "react-router";
 import RecipeCard from "../components/RecipeCard";
 import { Zoom } from "react-awesome-reveal";
+import { Helmet } from "react-helmet";
 
 const AllRecipes = () => {
   const initialData = useLoaderData();
@@ -27,6 +28,9 @@ const AllRecipes = () => {
 
   return (
     <div>
+         <Helmet>
+        <title>RecipeBook || {active}</title>
+      </Helmet>
       <div className="flex flex-col items-center py-5 gap-4">
         <div className="flex justify-center items-center py-5 gap-4"> 
           <button

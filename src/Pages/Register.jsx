@@ -1,11 +1,10 @@
-import React, {  use, useContext, useState } from "react";
-import { Link, useLocation, useNavigate } from "react-router";
-// import { AuthContext } from "../provider/AuthProvider";
-// import { Helmet } from "react-helmet";
-// import { toast } from "react-toastify";
+import React, {  use,  useState } from "react";
+import { Link, useNavigate } from "react-router";
+
 import { AuthContext } from './../Provider/AuthProvider';
 import Swal from "sweetalert2";
-// import { use } from "react";
+import { Helmet } from "react-helmet";
+
 
 const Register = () => {
 
@@ -129,9 +128,9 @@ const Register = () => {
   }
   return (
     <div className="my-10 ">
-      {/* <Helmet>
-        <title>AppStore || Register</title>
-      </Helmet> */}
+      <Helmet>
+        <title>RecipeBook || Register</title>
+      </Helmet>
       <div className="flex justify-center min-h-10/12 items-center">
         <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-sm hover:shadow-md">
           <h2 className="font-semibold text-2xl text-center py-5">

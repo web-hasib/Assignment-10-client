@@ -5,6 +5,7 @@ import { AuthContext } from "../Provider/AuthProvider";
 import { FaEdit } from "react-icons/fa";
 import { MdDeleteOutline } from "react-icons/md";
 import Swal from "sweetalert2";
+import { Helmet } from 'react-helmet';
 
 const RecipeDetails = () => {
   const { id } = useParams();
@@ -74,6 +75,9 @@ const RecipeDetails = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>RecipeBook || {title}</title>
+      </Helmet>
       <div className="p-6 max-w-7xl mx-auto rounded-lg space-y-6">
         <div>
             {

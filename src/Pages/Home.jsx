@@ -3,12 +3,17 @@ import Banner from "../components/Banner";
 import { Fade, Zoom } from "react-awesome-reveal";
 import { Link, useLoaderData } from "react-router";
 import TopCard from "../components/TopCard";
+import { Helmet } from "react-helmet";
 
 const Home = () => {
   const data = useLoaderData();
   // console.log(data);
   return (
-    <div>
+    <div> 
+
+      <Helmet>
+        <title>RecipeBook || Home</title>
+      </Helmet>
       <Fade direction="up" triggerOnce cascade damping={2}>
         <div>
           <Banner></Banner>

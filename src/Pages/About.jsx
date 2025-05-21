@@ -6,7 +6,7 @@ const About = () => {
   return (
     <div className="min-h-screen bg-base-100 text-base-content px-4 md:px-10 py-10">
       <Helmet>
-        <title>About | Recipe Book</title>
+        <title>RecipeBook || About </title>
       </Helmet>
 
       <Fade cascade damping={0.1} triggerOnce>
