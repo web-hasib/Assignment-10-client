@@ -51,8 +51,8 @@ const AddRecipe = () => {
           icon: "success",
           confirmButtonText: "OK",
         });
-        form.reset();
-        navigate("/");
+        // form.reset();
+        // navigate("/");
       } else {
         Swal.fire({
           title: "Error!",
