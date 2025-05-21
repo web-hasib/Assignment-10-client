@@ -1,95 +1,82 @@
 import React, { useState } from "react";
-import { useLoaderData } from "react-router";
+import { NavLink, useLoaderData } from "react-router";
 import RecipeCard from "../components/RecipeCard";
 import { Zoom } from "react-awesome-reveal";
 
 const AllRecipes = () => {
   const initialData = useLoaderData();
-const [data ,setData] = useState(initialData);
+  const [data, setData] = useState(initialData);
+  const [active , setActive] = useState("All");
   console.log(data);
+  const filterItalian = initialData.filter(
+    (recipe) => recipe.cuisine == "Italian"
+  );
+  const filterIndian = initialData.filter(
+    (recipe) => recipe.cuisine == "Indian"
+  );
+  const filterChinese = initialData.filter(
+    (recipe) => recipe.cuisine == "Chinese"
+  );
+  const filterMexican = initialData.filter(
+    (recipe) => recipe.cuisine == "Mexican"
+  );
+
+    const btnClass = "text-green-500 border-green-300 rounded-2xl px-5 hover:text-gray-50 hover:bg-green-400";
+  const activeClass = "bg-green-400 text-white font-semibold italic"; 
+
+
   return (
     <div>
-      <div>
-        <div className="flex items-center -mx-4 overflow-x-auto overflow-y-hidden sm:justify-center flex-nowrap dark:bg-gray-100 dark:text-gray-800">
-          <a
-            rel="noopener noreferrer"
-            href="#"
-            className="flex items-center flex-shrink-0 px-5 py-3 space-x-2 border-b dark:border-gray-600 dark:text-gray-600"
+      <div className="flex flex-col items-center py-5 gap-4">
+        <div className="flex justify-center items-center py-5 gap-4"> 
+          <button
+            onClick={() => {
+              setData(initialData);
+                setActive("All");
+            }}
+             className={`${btnClass} ${active === "All" ? activeClass : ""}`}
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className="w-4 h-4"
-            >
-              <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
-            </svg>
-            <span>Architecto</span>
-          </a>
-          <a
-            rel="noopener noreferrer"
-            href="#"
-            className="flex items-center flex-shrink-0 px-5 py-3 space-x-2 border border-b-0 rounded-t-lg dark:border-gray-600 dark:text-gray-900"
+            All
+          </button>
+          <button
+            onClick={() => {
+              setData(filterIndian);
+                setActive("Indian");
+            }}
+             className={`${btnClass} ${active=== "Indian" ? activeClass : ""}`}
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className="w-4 h-4"
-            >
-              <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
-              <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
-            </svg>
-            <span>Corrupti</span>
-          </a>
-          <a
-            rel="noopener noreferrer"
-            href="#"
-            className="flex items-center flex-shrink-0 px-5 py-3 space-x-2 border-b dark:border-gray-600 dark:text-gray-600"
+            Indean
+          </button>
+          <button
+            onClick={() => {
+              setData(filterItalian);
+                setActive("Italian");
+            }}
+             className={`${btnClass} ${active === "Italian" ? activeClass : ""}`}
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className="w-4 h-4"
-            >
-              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
-            </svg>
-            <span>Excepturi</span>
-          </a>
-          <a
-            rel="noopener noreferrer"
-            href="#"
-            className="flex items-center flex-shrink-0 px-5 py-3 space-x-2 border-b dark:border-gray-600 dark:text-gray-600"
+            Italian
+          </button>
+          <button
+            onClick={() => {
+              setData(filterChinese);
+                setActive("Chinese");
+            }}
+             className={`${btnClass} ${active === "Chinese" ? activeClass : ""}`}
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className="w-4 h-4"
-            >
-              <circle cx="12" cy="12" r="10"></circle>
-              <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon>
-            </svg>
-            <span>Consectetur</span>
-          </a>
+            Chinese{" "}
+          </button>
+          <button
+            onClick={() => {
+              setData(filterMexican);
+                setActive("Mexican");
+            }}
+             className={`${btnClass} ${active === "Mexican" ? activeClass : ""}`}
+          >
+            Mexican{" "}
+          </button>
         </div>
+        <h1 className="text-xl font-bold text-gray-400">Total Recipe <span className="text-green-400"> {data.length}</span> found</h1>
+       
       </div>
       <Zoom>
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mx-auto p-2 md:p-4">
