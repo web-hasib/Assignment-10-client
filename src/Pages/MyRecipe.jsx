@@ -6,6 +6,7 @@ import { Slide } from "react-awesome-reveal";
 import { Helmet } from "react-helmet";
 
 import CardForMyRecipe from "../components/CardForMyRecipe";
+import EmptyPage from './EmptyPage';
 
 const MyRecipe = () => {
   const { user } = use(AuthContext);
@@ -30,12 +31,17 @@ const MyRecipe = () => {
         <Helmet>
           <title>RecipeBook || My Recipe</title>
         </Helmet>
-
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mx-auto p-2 md:p-4 relative">
+        {
+          myRecipe.length >0 ? (
+             <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mx-auto p-2 md:p-4 relative">
           {myRecipe.map((recipe) => (
             <CardForMyRecipe key={recipe._id} handleFilter={handleFilter} recipe={recipe}></CardForMyRecipe>
           ))}
         </div>
+          ) : <EmptyPage/>
+        }
+
+       
       </Slide>
     </div>
   );

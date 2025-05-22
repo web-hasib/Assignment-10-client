@@ -53,7 +53,7 @@ const AddRecipe = () => {
           confirmButtonText: "OK",
         });
         form.reset();
-        navigate("/");
+        navigate("/myRecipes");
       } else {
         Swal.fire({
           title: "Error!",
@@ -76,7 +76,7 @@ const AddRecipe = () => {
 
     <div className="p-6 md:p-12">
       <div className="text-center space-y-4">
-        <h1 className="text-4xl md:text-5xl font-bold">Add New Recipe</h1>
+        <h1 className="text-4xl md:text-5xl text-blue-400  font-bold">Add New Recipe</h1>
         <p className="text-gray-600 dark:text-gray-400">
           Fill in the form below to share your recipe with others.
         </p>

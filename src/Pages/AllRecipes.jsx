@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { NavLink, useLoaderData } from "react-router";
+import {  useLoaderData } from "react-router";
 import RecipeCard from "../components/RecipeCard";
 import { Zoom } from "react-awesome-reveal";
 import { Helmet } from "react-helmet";
@@ -22,8 +22,7 @@ const AllRecipes = () => {
     (recipe) => recipe.cuisine == "Mexican"
   );
 
-    const btnClass = "text-green-500 border-green-300 rounded-2xl px-5 hover:text-gray-50 hover:bg-green-400";
-  const activeClass = "bg-green-400 text-white font-semibold italic"; 
+  
 
 
   return (
@@ -32,53 +31,42 @@ const AllRecipes = () => {
         <title>RecipeBook || {active}</title>
       </Helmet>
       <div className="flex flex-col items-center py-5 gap-4">
-        <div className="flex justify-center items-center py-5 gap-4"> 
-          <button
-            onClick={() => {
-              setData(initialData);
-                setActive("All");
-            }}
-             className={`${btnClass} ${active === "All" ? activeClass : ""}`}
-          >
-            All
-          </button>
-          <button
-            onClick={() => {
-              setData(filterIndian);
-                setActive("Indian");
-            }}
-             className={`${btnClass} ${active=== "Indian" ? activeClass : ""}`}
-          >
-            Indean
-          </button>
-          <button
-            onClick={() => {
-              setData(filterItalian);
-                setActive("Italian");
-            }}
-             className={`${btnClass} ${active === "Italian" ? activeClass : ""}`}
-          >
-            Italian
-          </button>
-          <button
-            onClick={() => {
-              setData(filterChinese);
-                setActive("Chinese");
-            }}
-             className={`${btnClass} ${active === "Chinese" ? activeClass : ""}`}
-          >
-            Chinese{" "}
-          </button>
-          <button
-            onClick={() => {
-              setData(filterMexican);
-                setActive("Mexican");
-            }}
-             className={`${btnClass} ${active === "Mexican" ? activeClass : ""}`}
-          >
-            Mexican{" "}
-          </button>
-        </div>
+        
+        <div className="flex justify-center items-center py-5 ">
+  <select
+    onChange={(e) => {
+      const value = e.target.value;
+      setActive(value);
+      switch (value) {
+        case "All":
+          setData(initialData);
+          break;
+        case "Indian":
+          setData(filterIndian);
+          break;
+        case "Italian":
+          setData(filterItalian);
+          break;
+        case "Chinese":
+          setData(filterChinese);
+          break;
+        case "Mexican":
+          setData(filterMexican);
+          break;
+        default:
+          setData(initialData);
+      }
+    }}
+    value={active}
+    className="px-4 py-2 bg-green-200 rounded-lg text-sm md:text-xl md:italic shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+  >
+    <option className="bg-green-50" value="All">All</option>
+    <option className="bg-green-50" value="Indian">Indian</option>
+    <option className="bg-green-50" value="Italian">Italian</option>
+    <option className="bg-green-50" value="Chinese">Chinese</option>
+    <option className="bg-green-50" value="Mexican">Mexican</option>
+  </select>
+</div>
         <h1 className="text-xl font-bold text-gray-400">Total Recipe <span className="text-green-400"> {data.length}</span> found</h1>
        
       </div>
