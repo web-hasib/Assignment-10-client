@@ -32,7 +32,7 @@ const UpdateRecipe = () => {
         };
         // console.log(updatedRecipe);
 
-        fetch(`http://localhost:3000/recipes/${id}`, {
+        fetch(`https://recipe-book-server-gold.vercel.app/recipes/${id}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'

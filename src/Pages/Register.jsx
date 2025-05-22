@@ -54,7 +54,7 @@ const Register = () => {
     const user = res.user
 
     // add data to database
-    fetch('http://localhost:3000/users',{
+    fetch('https://recipe-book-server-gold.vercel.app/users',{
       method: 'POST',
       headers:{
         'content-type': 'application/json'

@@ -36,7 +36,7 @@ const AddRecipe = () => {
 
     // Replace with your backend call
     // console.log("New Recipe:", recipe);
-    fetch("http://localhost:3000/recipes",{
+    fetch("https://recipe-book-server-gold.vercel.app/recipes",{
       method: "POST",
       headers: {
         "Content-Type": "application/json",

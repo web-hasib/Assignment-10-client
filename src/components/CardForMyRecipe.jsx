@@ -19,7 +19,7 @@ const CardForMyRecipe = ({ recipe,handleFilter }) => {
           confirmButtonText: "Yes, delete it!",
         }).then((result) => {
           if (result.isConfirmed) {
-            fetch(`http://localhost:3000/recipes/${id}`, {
+            fetch(`https://recipe-book-server-gold.vercel.app/recipes/${id}`, {
               method: "DELETE",
             })
               .then((res) => res.json())

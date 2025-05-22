@@ -20,7 +20,7 @@ export const router = createBrowserRouter([
         children:[
             {
                 index:true,
-                loader:()=>fetch('http://localhost:3000/topRecipes'),
+                loader:()=>fetch('https://recipe-book-server-gold.vercel.app/topRecipes'),
                 element:<Home></Home>
             },
             {
@@ -39,12 +39,12 @@ export const router = createBrowserRouter([
             },
             {
                 path:'allRecipes',
-                loader:()=>fetch('http://localhost:3000/recipes'),
+                loader:()=>fetch('https://recipe-book-server-gold.vercel.app/recipes'),
                 element:<AllRecipes></AllRecipes>
             },
             {
                 path:'/recipes/:id',
-                loader:({params})=>fetch(`http://localhost:3000/recipes/${params.id}`),
+                loader:({params})=>fetch(`https://recipe-book-server-gold.vercel.app/recipes/${params.id}`),
                 
                 element:<PrivateRoute>
                     <RecipeDetails></RecipeDetails>
@@ -52,13 +52,13 @@ export const router = createBrowserRouter([
             },
             {
                 path:'myRecipes',
-                loader:()=>fetch('http://localhost:3000/recipes'),
+                loader:()=>fetch('https://recipe-book-server-gold.vercel.app/recipes'),
                 element:<PrivateRoute>
                     <MyRecipe></MyRecipe>
                 </PrivateRoute>
             },{
                 path:'update/:id',
-                loader:({params})=>fetch(`http://localhost:3000/recipes/${params.id}`),
+                loader:({params})=>fetch(`https://recipe-book-server-gold.vercel.app/recipes/${params.id}`),
                 element:<PrivateRoute>
                     <UpdateRecipe></UpdateRecipe>
                 </PrivateRoute>
