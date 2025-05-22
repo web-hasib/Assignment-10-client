@@ -13,13 +13,13 @@ const Login = () => {
   const { loginWithGoogle, logIn } = use(AuthContext);
   const location = useLocation();
   const Navigate = useNavigate();
-  console.log(location);
+  // console.log(location);
   const handleSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
     const email = form.email.value;
     const password = form.password.value;
-    console.log(email, password);
+    // console.log(email, password);
 
     logIn(email, password)
       .then((res) => {
@@ -46,7 +46,7 @@ const Login = () => {
   const handleGoogleLogin = () => {
     loginWithGoogle()
       .then((res) => {
-        console.log(res.user);
+        // console.log(res.user);
         // alert("Thank you for joining us");
         Swal.fire({
           position: "top-end",

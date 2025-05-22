@@ -8,7 +8,7 @@ const AllRecipes = () => {
   const initialData = useLoaderData();
   const [data, setData] = useState(initialData);
   const [active , setActive] = useState("All");
-  console.log(data);
+  // console.log(data);
   const filterItalian = initialData.filter(
     (recipe) => recipe.cuisine == "Italian"
   );

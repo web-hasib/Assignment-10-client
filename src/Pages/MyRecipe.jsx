@@ -16,7 +16,7 @@ const MyRecipe = () => {
 
 
   const handleFilter =(id)=>{
-    console.log(id);
+    // console.log(id);
     const remaining = data.filter(recipe => recipe._id !== id);
     setData(remaining);
   }
@@ -24,7 +24,7 @@ const MyRecipe = () => {
 
   // console.log(data);
   const myRecipe = data.filter((recipe) => recipe.email === user?.email);
-  console.log(myRecipe);
+  // console.log(myRecipe);
   return (
     <div>
       <Slide>

@@ -44,7 +44,7 @@ const AddRecipe = () => {
       body: JSON.stringify(recipe),
     }).then((res) => res.json())
     .then((data) => { 
-      console.log ( 'from server', data);
+      // console.log ( 'from server', data);
       if (data.insertedId) {
         Swal.fire({
           title: "Success!",

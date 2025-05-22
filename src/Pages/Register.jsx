@@ -29,7 +29,7 @@ const Register = () => {
     const image = form.image.value;
     const email = form.email.value;
     const password = form.password.value;
-    console.log(name,image,email,password);
+    // console.log(name,image,email,password);
     if(password.length <6){
       setPassError("Password must be equal or greater than 6")
       return;
@@ -67,7 +67,7 @@ const Register = () => {
     })
     
 
-    console.log(user);
+    // console.log(user);
     updateUser({displayName: name , photoURL: image}).then(()=>{
       // setUser(user)
       setUser({...user,displayName: name , photoURL: image })

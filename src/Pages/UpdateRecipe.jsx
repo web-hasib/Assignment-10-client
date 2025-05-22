@@ -30,7 +30,7 @@ const UpdateRecipe = () => {
             likeCount,
             email
         };
-        console.log(updatedRecipe);
+        // console.log(updatedRecipe);
 
         fetch(`http://localhost:3000/recipes/${id}`, {
             method: 'PUT',
