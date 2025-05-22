@@ -5,7 +5,7 @@ import { Link } from 'react-router';
 const TopCard = ({recipe}) => {
     const { image, title, cuisine, likeCount, _id } = recipe;
     return (
-        <div className="rounded-2xl overflow-hidden shadow-sm border border-gray-100 border-dashed hover:shadow-xl transition duration-300">
+        <div className="rounded-2xl overflow-hidden shadow-sm border bg-red-50/80 border-gray-100 border-dashed hover:shadow-xl transition duration-300">
       <img
         src={image }
         alt={title}

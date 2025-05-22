@@ -1,13 +1,26 @@
-import React, { use } from "react";
-import { useLoaderData } from "react-router";
+import React, { use, useState } from "react";
+import { Link, useLoaderData } from "react-router";
 import { AuthContext } from "../Provider/AuthProvider";
-import RecipeCard from "../components/RecipeCard";
+
 import { Slide } from "react-awesome-reveal";
 import { Helmet } from "react-helmet";
 
+import CardForMyRecipe from "../components/CardForMyRecipe";
+
 const MyRecipe = () => {
   const { user } = use(AuthContext);
-  const data = useLoaderData();
+
+  const initialData = useLoaderData();
+  const [data , setData] = useState(initialData);
+
+
+  const handleFilter =(id)=>{
+    console.log(id);
+    const remaining = data.filter(recipe => recipe._id !== id);
+    setData(remaining);
+  }
+
+
   // console.log(data);
   const myRecipe = data.filter((recipe) => recipe.email === user?.email);
   console.log(myRecipe);
@@ -18,9 +31,9 @@ const MyRecipe = () => {
           <title>RecipeBook || My Recipe</title>
         </Helmet>
 
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mx-auto p-2 md:p-4">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mx-auto p-2 md:p-4 relative">
           {myRecipe.map((recipe) => (
-            <RecipeCard key={recipe._id} recipe={recipe}></RecipeCard>
+            <CardForMyRecipe key={recipe._id} handleFilter={handleFilter} recipe={recipe}></CardForMyRecipe>
           ))}
         </div>
       </Slide>

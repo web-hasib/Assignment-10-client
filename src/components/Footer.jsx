@@ -19,22 +19,35 @@ const Footer = () => {
         </a>
       </div>
       <div className="flex gap-3">
-        <NavLink className="hover:text-black hover:font-bold" to="/">
-          {" "}
-          Home
-        </NavLink>
-        <NavLink className="hover:text-black hover:font-bold" to="/my-profile">
-          {" "}
-          All Recipes
-        </NavLink>
-        {/* <NavLink className="hover:text-black hover:font-bold" to="/my-profile">
-        {" "}
-        Add Recipe 
-      </NavLink>
-      <NavLink className="hover:text-black hover:font-bold" to="/my-profile">
-        {" "}
-        My Recipes
-      </NavLink> */}
+       <NavLink className="hover:text-black hover:font-bold" to="/">
+               {" "}
+               Home
+             </NavLink>
+             <NavLink className="hover:text-black hover:font-bold" to="/allRecipes">
+               {" "}
+               All Recipes
+             </NavLink>
+             <NavLink className="hover:text-black hover:font-bold" to="/addRecipe">
+               {" "}
+               Add Recipe 
+             </NavLink>
+             <NavLink className="hover:text-black hover:font-bold" to="/myRecipes">
+               {" "}
+               My Recipes
+             </NavLink>
+             <NavLink className="hover:text-black hover:font-bold" to="/about">
+               {" "}
+               About
+             </NavLink>
+      </div>
+       {/* Contact Info */}
+      <div className="text-center mt-4">
+        <p className="text-sm text-gray-600">
+          📧 Email: <a  className="hover:underline text-blue-500">recipe@book.com</a>
+        </p>
+        <p className="text-sm text-gray-600">
+          📞 Phone: <a  className="hover:underline text-blue-500">+880 1234 567 890</a>
+        </p>
       </div>
       <nav>
         {/* Social Media Links */}

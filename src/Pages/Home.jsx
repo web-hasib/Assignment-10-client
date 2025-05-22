@@ -4,6 +4,8 @@ import { Fade, Zoom } from "react-awesome-reveal";
 import { Link, useLoaderData } from "react-router";
 import TopCard from "../components/TopCard";
 import { Helmet } from "react-helmet";
+import FAQ from "../components/FAQ";
+import FeaturedChefs from "../components/Chefs";
 
 const Home = () => {
   const data = useLoaderData();
@@ -36,6 +38,15 @@ const Home = () => {
 
         <Link to='/allRecipes' className="btn btn-soft border-blue-300 rounded-2xl px-7 hover:text-white btn-info">Show all</Link>
         </div>
+      </section>
+      <section>
+        <Fade >
+
+        <FAQ></FAQ>
+        </Fade>
+      </section>
+      <section>
+        <FeaturedChefs></FeaturedChefs>
       </section>
     </div>
   );
