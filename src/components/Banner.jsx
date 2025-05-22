@@ -1,20 +1,12 @@
-import React from 'react';
+import React from "react";
 
 const Banner = () => {
-    return (
-        <div>
-
-{/* 
-
-
- */}
-
-
-             <div className="carousel w-full">
+  return (
+    <div>
+      <div className="carousel w-full">
         <div id="slide1" className="carousel-item relative w-full">
           <img
-            
-src="https://i.ibb.co/5bMhgTm/Cover-Banner-08.jpg"
+            src="https://i.ibb.co/5bMhgTm/Cover-Banner-08.jpg"
             className="w-full rounded-xl max-h-[700px]"
           />
           <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
@@ -70,8 +62,8 @@ src="https://i.ibb.co/5bMhgTm/Cover-Banner-08.jpg"
           </div>
         </div>
       </div>
-        </div>
-    );
+    </div>
+  );
 };
 
 export default Banner;

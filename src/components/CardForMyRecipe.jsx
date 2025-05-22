@@ -5,39 +5,36 @@ import { MdDeleteOutline } from "react-icons/md";
 import { Link } from "react-router";
 import Swal from "sweetalert2";
 
-const CardForMyRecipe = ({ recipe,handleFilter }) => {
-
-
-      const handleDelete = (id) => {
-        Swal.fire({
-          title: "Are you sure?",
-          text: "You won't be able to revert this!",
-          icon: "warning",
-          showCancelButton: true,
-          confirmButtonColor: "#3085d6",
-          cancelButtonColor: "#d33",
-          confirmButtonText: "Yes, delete it!",
-        }).then((result) => {
-          if (result.isConfirmed) {
-            fetch(`https://recipe-book-server-gold.vercel.app/recipes/${id}`, {
-              method: "DELETE",
-            })
-              .then((res) => res.json())
-              .then((data) => {
-                if (data.deletedCount > 0) {
-                  Swal.fire({
-                    title: "Deleted!",
-                    text: "Your file has been deleted.",
-                    icon: "success",
-                  });
-                //   nevigate(-1);
-                handleFilter(id);
-                }
+const CardForMyRecipe = ({ recipe, handleFilter }) => {
+  const handleDelete = (id) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`https://recipe-book-server-gold.vercel.app/recipes/${id}`, {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.deletedCount > 0) {
+              Swal.fire({
+                title: "Deleted!",
+                text: "Your file has been deleted.",
+                icon: "success",
               });
-          }
-        });
-      };
-
+              //   nevigate(-1);
+              handleFilter(id);
+            }
+          });
+      }
+    });
+  };
 
   const { image, title, likeCount, cuisine, ingredients, _id } = recipe;
   return (
@@ -57,12 +54,11 @@ const CardForMyRecipe = ({ recipe,handleFilter }) => {
           </h2>
           <p>{ingredients}</p>
           <div className="flex  items-center justify-end p-2 gap-1">
-              <FcLike /> {likeCount}
-            </div>
+            <FcLike /> {likeCount}
+          </div>
           <div className="card-actions justify-between items-center">
-
             {/* edit and delete button  */}
-            
+
             <div className="flex  items-center gap-1">
               <Link
                 className="btn rounded-2xl  mx-auto px-5 bg-blue-50 hover:bg-blue-400 hover:text-white "
@@ -73,7 +69,7 @@ const CardForMyRecipe = ({ recipe,handleFilter }) => {
               <button
                 className="btn rounded-2xl  mx-auto px-5  bg-blue-50 hover:bg-red-400 hover:text-white "
                 onClick={() => {
-                    handleDelete(recipe._id);
+                  handleDelete(recipe._id);
                 }}
               >
                 <MdDeleteOutline size={25} />

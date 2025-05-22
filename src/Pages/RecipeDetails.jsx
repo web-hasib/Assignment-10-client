@@ -5,7 +5,7 @@ import { AuthContext } from "../Provider/AuthProvider";
 import { FaEdit } from "react-icons/fa";
 import { MdDeleteOutline } from "react-icons/md";
 import Swal from "sweetalert2";
-import { Helmet } from 'react-helmet';
+import { Helmet } from "react-helmet";
 
 const RecipeDetails = () => {
   const { id } = useParams();
@@ -28,7 +28,7 @@ const RecipeDetails = () => {
   const [likes, setLikes] = useState(likeCount);
 
   const handleLike = () => {
-    if ( user && email == userEmail ) {
+    if (user && email == userEmail) {
       return;
     } else {
       setLikes(likes + 1);
@@ -82,11 +82,11 @@ const RecipeDetails = () => {
       </Helmet>
       <div className="p-6 max-w-7xl mx-auto rounded-lg space-y-6">
         <div>
-            {
-                likes > 0 && <div className="text-center text-xl font-bold text-pink-300">
-                    ({likes}) people interested in this recipe
-                </div>
-            }
+          {likes > 0 && (
+            <div className="text-center text-xl font-bold text-pink-300">
+              ({likes}) people interested in this recipe
+            </div>
+          )}
         </div>
         <img
           src={image}
@@ -141,13 +141,13 @@ const RecipeDetails = () => {
           >
             Like {likes}
           </button>
-        //  <div className="flex items-center gap-5">
-        //   <button onClick={()=>{
-            
-        //   }} className="btn btn-soft border-blue-300 rounded-2xl px-4 py-0 hover:text-white btn-info flex items-center gap-1">
-        //     add to wishList
-        //   </button>
-        //  </div>
+          //  <div className="flex items-center gap-5">
+          //   <button onClick={()=>{
+
+          //   }} className="btn btn-soft border-blue-300 rounded-2xl px-4 py-0 hover:text-white btn-info flex items-center gap-1">
+          //     add to wishList
+          //   </button>
+          //  </div>
         )}
       </div>
     </div>

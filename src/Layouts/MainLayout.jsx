@@ -9,7 +9,7 @@ import { ThemeContext } from "../Theme/ThemeProvider";
 const MainLayout = () => {
   const { loading } = use(AuthContext);
   const { theme } = use(ThemeContext);
-//   console.log(theme);
+  //   console.log(theme);
   return (
     <div>
       <header

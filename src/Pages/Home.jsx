@@ -11,38 +11,39 @@ const Home = () => {
   const data = useLoaderData();
   // console.log(data);
   return (
-    <div> 
-
+    <div>
       <Helmet>
         <title>RecipeBook || Home</title>
       </Helmet>
       <Fade direction="up" triggerOnce cascade damping={2}>
-        <div>
+        <div className="pt-2np">
           <Banner></Banner>
         </div>
       </Fade>
       <section>
-        <h1 className="text-center py-10 text-3xl text-blue-400 font-bold">Top Recipes</h1>
+        <h1 className="text-center py-10 text-3xl text-blue-400 font-bold">
+          Top Recipes
+        </h1>
 
-      
-       
-
-        <Zoom >
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-          {
-            data.map(recipe=><TopCard key={recipe._id}recipe={recipe}></TopCard>)
-          }
-        </div>
+        <Zoom>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+            {data.map((recipe) => (
+              <TopCard key={recipe._id} recipe={recipe}></TopCard>
+            ))}
+          </div>
         </Zoom>
-         <div className="items-center flex justify-center py-10">
-
-        <Link to='/allRecipes' className="btn btn-soft border-blue-300 rounded-2xl px-7 hover:text-white btn-info">Show all</Link>
+        <div className="items-center flex justify-center py-10">
+          <Link
+            to="/allRecipes"
+            className="btn btn-soft border-blue-300 rounded-2xl px-7 hover:text-white btn-info"
+          >
+            Show all
+          </Link>
         </div>
       </section>
       <section>
-        <Fade >
-
-        <FAQ></FAQ>
+        <Fade>
+          <FAQ></FAQ>
         </Fade>
       </section>
       <section>

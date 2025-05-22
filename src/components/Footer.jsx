@@ -2,16 +2,14 @@ import React from "react";
 import { FaFacebook, FaInstagram, FaLinkedin, FaTwitter } from "react-icons/fa";
 import { NavLink } from "react-router";
 
-const Footer = ({theme}) => {
+const Footer = ({ theme }) => {
   return (
     <footer
-       style={{
-          backgroundImage:
-            theme === "dark"
-              ? ""
-              : "url('https://i.ibb.co/CpCMtPPK/13.jpg')",
-          backgroundSize: "cover",
-        }}
+      style={{
+        backgroundImage:
+          theme === "dark" ? "" : "url('https://i.ibb.co/CpCMtPPK/13.jpg')",
+        backgroundSize: "cover",
+      }}
       className="footer footer-horizontal footer-center  text-base-content rounded pt-10 pb-5"
     >
       <div className="flex items-center gap-3">
@@ -25,34 +23,36 @@ const Footer = ({theme}) => {
         </a>
       </div>
       <div className="flex gap-3">
-       <NavLink className="hover:text-black hover:font-bold" to="/">
-               {" "}
-               Home
-             </NavLink>
-             <NavLink className="hover:text-black hover:font-bold" to="/allRecipes">
-               {" "}
-               All Recipes
-             </NavLink>
-             <NavLink className="hover:text-black hover:font-bold" to="/addRecipe">
-               {" "}
-               Add Recipe 
-             </NavLink>
-             <NavLink className="hover:text-black hover:font-bold" to="/myRecipes">
-               {" "}
-               My Recipes
-             </NavLink>
-             <NavLink className="hover:text-black hover:font-bold" to="/about">
-               {" "}
-               About
-             </NavLink>
+        <NavLink className="hover:text-black hover:font-bold" to="/">
+          {" "}
+          Home
+        </NavLink>
+        <NavLink className="hover:text-black hover:font-bold" to="/allRecipes">
+          {" "}
+          All Recipes
+        </NavLink>
+        <NavLink className="hover:text-black hover:font-bold" to="/addRecipe">
+          {" "}
+          Add Recipe
+        </NavLink>
+        <NavLink className="hover:text-black hover:font-bold" to="/myRecipes">
+          {" "}
+          My Recipes
+        </NavLink>
+        <NavLink className="hover:text-black hover:font-bold" to="/about">
+          {" "}
+          About
+        </NavLink>
       </div>
-       {/* Contact Info */}
+      {/* Contact Info */}
       <div className="text-center mt-4">
         <p className="text-sm text-gray-600">
-          📧 Email: <a  className="hover:underline text-blue-500">recipe@book.com</a>
+          📧 Email:{" "}
+          <a className="hover:underline text-blue-500">recipe@book.com</a>
         </p>
         <p className="text-sm text-gray-600">
-          📞 Phone: <a  className="hover:underline text-blue-500">+880 1234 567 890</a>
+          📞 Phone:{" "}
+          <a className="hover:underline text-blue-500">+880 1234 567 890</a>
         </p>
       </div>
       <nav>

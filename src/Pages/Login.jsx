@@ -70,7 +70,7 @@ const Login = () => {
        <Helmet>
         <title>RecipeBook || Login</title>
       </Helmet>
-      <div className="my-10">
+      <div className="py-20">
         <div className="flex justify-center items-center">
           <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow hover:shadow-md">
             <h2 className="font-semibold text-2xl text-center py-5">

@@ -1,33 +1,37 @@
-import React, { use } from 'react';
-import { Link, NavLink } from 'react-router';
-import { AuthContext } from '../Provider/AuthProvider';
-import Swal from 'sweetalert2';
-import { ThemeContext } from '../Theme/ThemeProvider';
-import { CiLight } from 'react-icons/ci';
-import { LuSunMoon } from 'react-icons/lu';
+import React, { use } from "react";
+import { Link, NavLink } from "react-router";
+import { AuthContext } from "../Provider/AuthProvider";
+import Swal from "sweetalert2";
+import { ThemeContext } from "../Theme/ThemeProvider";
+import { CiLight } from "react-icons/ci";
+import { LuSunMoon } from "react-icons/lu";
 
-{/* <img src="https://i.ibb.co/jvscyq8R/2-removebg-preview.png" alt="" /> */}
+{
+  /* <img src="https://i.ibb.co/jvscyq8R/2-removebg-preview.png" alt="" /> */
+}
 const Navbar = () => {
-  const {user,logOut}= use(AuthContext)
-  const { theme, toggleTheme } = use(ThemeContext)
+  const { user, logOut } = use(AuthContext);
+  const { theme, toggleTheme } = use(ThemeContext);
   // console.log(user?.email);
   const handleLogOut = () => {
     // console.log('user trying to log out');
-    logOut().then(() => {
+    logOut()
+      .then(() => {
         // Sign-out successful.
         Swal.fire({
-  position: "top-end",
-  icon: "success",
-  title: `Log out successfully`,
-  showConfirmButton: false,
-  timer: 1500
-});
-      }).catch((error) => {
+          position: "top-end",
+          icon: "success",
+          title: `Log out successfully`,
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      })
+      .catch((error) => {
         // An error happened.
         Swal.fire(error.message);
       });
   };
-     const links = (
+  const links = (
     <>
       <NavLink className="hover:text-black hover:font-bold" to="/">
         {" "}
@@ -39,7 +43,7 @@ const Navbar = () => {
       </NavLink>
       <NavLink className="hover:text-black hover:font-bold" to="/addRecipe">
         {" "}
-        Add Recipe 
+        Add Recipe
       </NavLink>
       <NavLink className="hover:text-black hover:font-bold" to="/myRecipes">
         {" "}
@@ -90,7 +94,8 @@ const Navbar = () => {
             alt=""
           />
           <a href="/" className="font-bold text-lg md:text-3xl text-blue-400">
-            Recipe <span className="text-gray-600 text-xs md:text-lg">Book</span>
+            Recipe{" "}
+            <span className="text-gray-600 text-xs md:text-lg">Book</span>
           </a>
         </div>
       </div>
@@ -100,10 +105,8 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="navbar-end gap-5">
-       
         {user?.photoURL && (
-     
-          <div  className="relative group inline-block">
+          <div className="relative group inline-block">
             <img
               className="w-8 h-8 rounded-full object-cover"
               src={user.photoURL}
@@ -115,17 +118,27 @@ const Navbar = () => {
           </div>
         )}
 
-          {/*  Toggle Theme Button */}
+        {/* Theme Button */}
         <button onClick={toggleTheme} className="btn rounded-full">
-          {theme === 'light' ? <LuSunMoon size={20} color='black'/> : <CiLight size={20} color='white' />}
+          {theme === "light" ? (
+            <LuSunMoon size={20} color="black" />
+          ) : (
+            <CiLight size={20} color="white" />
+          )}
         </button>
 
         {user ? (
-          <button onClick={handleLogOut} className="btn btn-soft border-blue-300 rounded-2xl px-7 hover:text-white btn-info">
+          <button
+            onClick={handleLogOut}
+            className="btn btn-soft border-blue-300 rounded-2xl px-7 hover:text-white btn-info"
+          >
             LogOut
           </button>
         ) : (
-          <Link to="/login" className="btn btn-soft border-blue-300 rounded-2xl px-7 hover:text-white btn-info">
+          <Link
+            to="/login"
+            className="btn btn-soft border-blue-300 rounded-2xl px-7 hover:text-white btn-info"
+          >
             Login
           </Link>
         )}

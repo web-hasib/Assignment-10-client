@@ -2,8 +2,6 @@ import React from "react";
 import { useNavigate } from "react-router";
 import { Typewriter } from "react-simple-typewriter";
 
-
-
 const cuisines = [
   { name: "Indian", image: "https://i.ibb.co/kTpFYmx/indea.jpg" },
   { name: "Italian", image: "https://i.ibb.co/zV5DrGSY/itali.jpg" },

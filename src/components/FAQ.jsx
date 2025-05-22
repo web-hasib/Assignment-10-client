@@ -41,7 +41,9 @@ const FAQ = () => {
 
   return (
     <section className=" mx-auto p-5">
-      <h2 className="text-center py-10 text-3xl text-blue-400 font-bold">Frequently Asked Questions</h2>
+      <h2 className="text-center py-10 text-3xl text-blue-400 font-bold">
+        Frequently Asked Questions
+      </h2>
       <div className="space-y-4">
         {faqs.map((faq, index) => (
           <div key={index} className="collapse collapse-arrow bg-red-100/90">
