@@ -2,10 +2,14 @@ import React, { use } from 'react';
 import { Link, NavLink } from 'react-router';
 import { AuthContext } from '../Provider/AuthProvider';
 import Swal from 'sweetalert2';
+import { ThemeContext } from '../Theme/ThemeProvider';
+import { CiLight } from 'react-icons/ci';
+import { LuSunMoon } from 'react-icons/lu';
 
 {/* <img src="https://i.ibb.co/jvscyq8R/2-removebg-preview.png" alt="" /> */}
 const Navbar = () => {
   const {user,logOut}= use(AuthContext)
+  const { theme, toggleTheme } = use(ThemeContext)
   // console.log(user?.email);
   const handleLogOut = () => {
     // console.log('user trying to log out');
@@ -110,6 +114,11 @@ const Navbar = () => {
             </div>
           </div>
         )}
+
+          {/*  Toggle Theme Button */}
+        <button onClick={toggleTheme} className="btn rounded-full">
+          {theme === 'light' ? <LuSunMoon size={20} color='black'/> : <CiLight size={20} color='white' />}
+        </button>
 
         {user ? (
           <button onClick={handleLogOut} className="btn btn-soft border-blue-300 rounded-2xl px-7 hover:text-white btn-info">

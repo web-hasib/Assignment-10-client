@@ -81,11 +81,9 @@ Welcome to **Recipe Book** – a dynamic, feature-rich, and responsive web appli
 - 👍 Likes increase in real-time on Recipe Details
 - 👀 Users can’t like their own recipes
 - 🎬 Integrated Lottie, React Simple Typewriter, and React Awesome Reveal
----
-## 😢 Challenges Not Implemented
 - 🎨 Light/Dark theme toggle on Home Page
-
 ---
+
 
 ## 📞 Contact
 

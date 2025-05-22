@@ -18,7 +18,7 @@ const TopCard = ({recipe}) => {
         <Link
           to={`/recipes/${_id}`}
           className="btn bg-green-200
-         border-green-300 rounded-2xl px-5 hover:text-white hover:bg-green-400"
+         border-green-300 dark:text-black rounded-2xl px-5 hover:text-white hover:bg-green-400"
         >
           View Details
         </Link>

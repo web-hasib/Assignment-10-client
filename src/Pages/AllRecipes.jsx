@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import {  useLoaderData } from "react-router";
 import RecipeCard from "../components/RecipeCard";
-import { Zoom } from "react-awesome-reveal";
+import { Slide, Zoom } from "react-awesome-reveal";
 import { Helmet } from "react-helmet";
 
 const AllRecipes = () => {
@@ -70,13 +70,13 @@ const AllRecipes = () => {
         <h1 className="text-xl font-bold text-gray-400">Total Recipe <span className="text-green-400"> {data.length}</span> found</h1>
        
       </div>
-      <Zoom>
+      <Slide>
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mx-auto p-2 md:p-4">
           {data.map((recipe) => (
             <RecipeCard key={recipe._id} recipe={recipe}></RecipeCard>
           ))}
         </div>
-      </Zoom>
+      </Slide>
     </div>
   );
 };

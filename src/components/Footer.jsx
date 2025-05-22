@@ -2,11 +2,17 @@ import React from "react";
 import { FaFacebook, FaInstagram, FaLinkedin, FaTwitter } from "react-icons/fa";
 import { NavLink } from "react-router";
 
-const Footer = () => {
+const Footer = ({theme}) => {
   return (
     <footer
-      style={{ backgroundImage: "url('https://i.ibb.co/CpCMtPPK/13.jpg')" }}
-      className="footer footer-horizontal footer-center bg-base-200 text-base-content rounded pt-10 pb-5"
+       style={{
+          backgroundImage:
+            theme === "dark"
+              ? ""
+              : "url('https://i.ibb.co/CpCMtPPK/13.jpg')",
+          backgroundSize: "cover",
+        }}
+      className="footer footer-horizontal footer-center  text-base-content rounded pt-10 pb-5"
     >
       <div className="flex items-center gap-3">
         <img
