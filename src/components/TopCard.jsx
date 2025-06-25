@@ -9,14 +9,14 @@ const TopCard = ({ recipe }) => {
       <img
         src={image}
         alt={title}
-        className="w-full h-96 md:h-52 object-cover"
+        className="w-full h-96 md:h-52 lg:h-46 object-cover"
       />
-      <div className="p-4 space-y-2">
-        <h2 className="text-xl font-semibold">{title}</h2>
-        <p className="text-sm text-gray-500">
+      <div className="p-3 space-y-2">
+        <h2 className="text-xl lg:text-lg font-semibold">{title}</h2>
+        <p className="text-sm lg:text-xs text-gray-500">
           Cuisine: <span className="italic text-yellow-400">{cuisine}</span>
         </p>
-        <p className="text-sm text-gray-500 font-semibold flex items-center gap-1">
+        <p className="text-sm lg:text-xs text-gray-500 font-semibold flex items-center gap-1">
           <FcLike color="red" /> Likes: {likeCount}
         </p>
         <Link
