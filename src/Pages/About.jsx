@@ -51,7 +51,7 @@ const About = () => {
             <p>
               Built with Firebase authentication and MongoDB database. Fully
               responsive UI with modern design, using React, Tailwind, DaisyUI,
-              MambaUI and animations via Lottie & Awesome Reveal.
+              MambaUI and animations via Lottie & Awesome Reveal .
             </p>
           </div>
           <div className="p-6 md:col-span-2 bg-base-200  rounded-2xl shadow-md">
