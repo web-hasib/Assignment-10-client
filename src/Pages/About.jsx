@@ -14,7 +14,7 @@ const About = () => {
           About Recipe Book
         </h1>
         <p className="max-w-3xl mx-auto text-center text-lg mb-10">
-          Recipe Book is your one-stop digital cookbook, allowing food
+          Recipe Book is you r one-stop digital cookbook, allowing food
           enthusiasts to share, discover, and manage delicious recipes from
           across the world. Built with love and flavor!
         </p>
