@@ -3,6 +3,8 @@
 This is the **frontend** of the Recipe Book web application, built using React and styled with Tailwind CSS and modern UI libraries. It communicates with a RESTful API to provide a seamless recipe management experience.
 
 🔗 **Live Site:** [https://recipe-book-90965.web.app/](https://recipe-book-90965.web.app/)
+🔗 **server Live :** [https://recipe-book-server-gold.vercel.app/](https://recipe-book-server-gold.vercel.app/)
+🔗 **server Ripo :** [https://github.com/web-hasib/Assignment-10-server](https://github.com/web-hasib/Assignment-10-server)
 
 ---
 
