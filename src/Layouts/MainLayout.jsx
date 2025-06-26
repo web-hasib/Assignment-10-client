@@ -11,7 +11,7 @@ const MainLayout = () => {
   const { theme } = use(ThemeContext);
   //   console.log(theme);
   return (
-    <div>
+    <div className="relative">
       <header
         style={{
           backgroundImage:
@@ -20,7 +20,7 @@ const MainLayout = () => {
               : "url('https://i.ibb.co/C3nd0Qfx/Screenshot-2025-05-20-105358.png')",
           backgroundSize: "cover",
         }}
-        className="bg-base-200"
+        className="bg-base-200  sticky top-0 z-1"
       >
         <Navbar></Navbar>
       </header>

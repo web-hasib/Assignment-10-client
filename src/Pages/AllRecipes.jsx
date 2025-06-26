@@ -79,7 +79,7 @@ const AllRecipes = () => {
         </h1>
       </div>
       <Slide>
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mx-auto p-2 md:p-4">
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 mx-auto p-2 md:p-4">
           {data.map((recipe) => (
             <RecipeCard key={recipe._id} recipe={recipe}></RecipeCard>
           ))}

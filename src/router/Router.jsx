@@ -13,6 +13,8 @@ import UpdateRecipe from "../Pages/UpdateRecipe";
 import PrivateRoute from "../Provider/PrivateRoute";
 import About from "../Pages/About";
 import Loading from "../Pages/Loading";
+import Dashboard from "../Layouts/Dashboard";
+import DashboardHome from "../Pages/DashboardHome";
 
 export const router = createBrowserRouter([
   {
@@ -34,14 +36,7 @@ export const router = createBrowserRouter([
         path: "register",
         element: <Register></Register>,
       },
-      {
-        path: "addRecipe",
-        element: (
-          <PrivateRoute>
-            <AddRecipe></AddRecipe>
-          </PrivateRoute>
-        ),
-      },
+
       {
         path: "allRecipes",
         loader: () =>
@@ -64,18 +59,7 @@ export const router = createBrowserRouter([
           </PrivateRoute>
         ),
       },
-      {
-        path: "myRecipes",
-        loader: () =>
-          fetch("https://recipe-book-server-gold.vercel.app/recipes"),
-        hydrateFallbackElement: <Loading></Loading>,
 
-        element: (
-          <PrivateRoute>
-            <MyRecipe></MyRecipe>
-          </PrivateRoute>
-        ),
-      },
       {
         path: "update/:id",
         loader: ({ params }) =>
@@ -95,6 +79,42 @@ export const router = createBrowserRouter([
         element: <About></About>,
       },
     ],
+  },
+  {
+    path: '/dashboard',
+    element:<PrivateRoute>
+      <Dashboard></Dashboard>
+    </PrivateRoute>,
+    children:[
+      {
+        index:true,
+                loader: () =>
+          fetch("https://recipe-book-server-gold.vercel.app/recipes"),
+        hydrateFallbackElement: <Loading></Loading>,
+        element:<DashboardHome/>
+      },
+            {
+        path: "addRecipe",
+        element: (
+          <PrivateRoute>
+            <AddRecipe></AddRecipe>
+          </PrivateRoute>
+        ),
+      },
+            {
+        path: "myRecipes",
+        loader: () =>
+          fetch("https://recipe-book-server-gold.vercel.app/recipes"),
+        hydrateFallbackElement: <Loading></Loading>,
+
+        element: (
+          <PrivateRoute>
+            <MyRecipe></MyRecipe>
+          </PrivateRoute>
+        ),
+      },
+    ]
+
   },
   {
     path: "*",

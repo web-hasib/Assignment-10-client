@@ -49,7 +49,7 @@ const AddRecipe = () => {
             confirmButtonText: "OK",
           });
           form.reset();
-          navigate("/myRecipes");
+          navigate("/dashboard/myRecipes");
         } else {
           Swal.fire({
             title: "Error!",

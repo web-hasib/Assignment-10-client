@@ -11,7 +11,7 @@ const Home = () => {
   const data = useLoaderData();
   // console.log(data);
   return (
-    <div>
+    <div className=" mx-1 md:mx-2 lg:mx-3 ">
       <Helmet>
         <title>RecipeBook || Home</title>
       </Helmet>

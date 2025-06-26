@@ -40,7 +40,7 @@ const FAQ = () => {
   ];
 
   return (
-    <section className=" mx-auto p-5">
+    <section className=" mx-auto p-1">
       <h2 className="text-center py-10 text-3xl text-blue-400 font-bold">
         Frequently Asked Questions
       </h2>

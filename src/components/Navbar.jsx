@@ -41,18 +41,16 @@ const Navbar = () => {
         {" "}
         All Recipes
       </NavLink>
-      <NavLink className="hover:text-black hover:font-bold" to="/addRecipe">
-        {" "}
-        Add Recipe
-      </NavLink>
-      <NavLink className="hover:text-black hover:font-bold" to="/myRecipes">
-        {" "}
-        My Recipes
-      </NavLink>
+
       <NavLink className="hover:text-black hover:font-bold" to="/about">
         {" "}
         About
       </NavLink>
+      <NavLink className="hover:text-black hover:font-bold" to="/dashboard">
+        {" "}
+        Dashboard
+      </NavLink>
+          
     </>
   );
   return (

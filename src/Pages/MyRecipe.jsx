@@ -30,7 +30,7 @@ const MyRecipe = () => {
           <title>RecipeBook || My Recipe</title>
         </Helmet>
         {myRecipe.length > 0 ? (
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mx-auto p-2 md:p-4 relative">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mx-auto p-2 md:p-4 relative">
             {myRecipe.map((recipe) => (
               <CardForMyRecipe
                 key={recipe._id}
