@@ -5,6 +5,8 @@ import { AuthContext } from './../Provider/AuthProvider';
 import Swal from "sweetalert2";
 import { Helmet } from "react-helmet";
 import { Slide } from "react-awesome-reveal";
+import register from '../../public/lottie/register.json'
+import Lottie from "lottie-react";
 
 
 const Register = () => {
@@ -134,7 +136,7 @@ const Register = () => {
       </Helmet>
        <Slide direction="right">
 
-      <div className="flex justify-center min-h-10/12 items-center">
+      <div className="flex justify-around flex-col-reverse gap-5 md:flex-row items-center">
         <div className="card bg-base-100/20 w-full max-w-sm shrink-0 shadow-sm hover:shadow-md">
           <h2 className="font-semibold text-2xl text-center py-5">
             Register your Account
@@ -206,6 +208,14 @@ const Register = () => {
                 Login
               </Link>
             </p>
+        </div>
+        <div>
+          {/* animation  */}
+                    <Lottie
+            style={{ height: "250px" }}
+            animationData={register}
+            loop={true}
+          />
         </div>
       </div>
        </Slide>

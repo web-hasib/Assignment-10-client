@@ -5,6 +5,8 @@ import { AuthContext } from "./../Provider/AuthProvider";
 import { Slide } from "react-awesome-reveal";
 import Swal from "sweetalert2";
 import { Helmet } from "react-helmet";
+import Lottie from "lottie-react";
+import login from '../../public/lottie/login.json'
 
 const Login = () => {
   const { loginWithGoogle, logIn } = use(AuthContext);
@@ -71,7 +73,7 @@ const Login = () => {
         <title>RecipeBook || Login</title>
       </Helmet>
       <div className="py-20">
-        <div className="flex justify-center items-center">
+        <div className="flex justify-around flex-col-reverse gap-5 md:flex-row items-center">
           <div className="card bg-base-100/20 w-full max-w-sm shrink-0 shadow hover:shadow-md">
             <h2 className="font-semibold text-2xl text-center py-5">
               Login your Account
@@ -124,6 +126,14 @@ const Login = () => {
                 Register
               </Link>
             </p>
+          </div>
+          <div>
+            {/* animation  */}
+                      <Lottie
+            style={{ height: "250px" }}
+            animationData={login}
+            loop={true}
+          />
           </div>
         </div>
       </div>
