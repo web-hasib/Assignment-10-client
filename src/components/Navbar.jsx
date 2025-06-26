@@ -42,13 +42,18 @@ const Navbar = () => {
         All Recipes
       </NavLink>
 
-      <NavLink className="hover:text-black hover:font-bold" to="/about">
+
+      <NavLink className="hover:text-black hover:font-bold" to="/dashboard/stat">
+        {" "}
+        Dashboard
+      </NavLink>
+            <NavLink className="hover:text-black hover:font-bold" to="/about">
         {" "}
         About
       </NavLink>
-      <NavLink className="hover:text-black hover:font-bold" to="/dashboard">
+            <NavLink className="hover:text-black hover:font-bold" to="/contact">
         {" "}
-        Dashboard
+        Contact
       </NavLink>
           
     </>

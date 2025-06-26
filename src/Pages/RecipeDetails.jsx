@@ -7,6 +7,17 @@ import { MdDeleteOutline } from "react-icons/md";
 import Swal from "sweetalert2";
 import { Helmet } from "react-helmet";
 
+
+
+
+import { FaUtensils, FaClock, FaListUl, FaTasks } from "react-icons/fa";
+import { GiKnifeFork } from "react-icons/gi";
+import { MdCategory } from "react-icons/md";
+import { FiCopy } from "react-icons/fi";
+
+
+
+
 const RecipeDetails = () => {
   const { id } = useParams();
   const nevigate = useNavigate();
@@ -75,6 +86,12 @@ const RecipeDetails = () => {
     });
   };
 
+
+    const handleCopyIngredients = () => {
+    navigator.clipboard.writeText(ingredients);
+    Swal.fire('Ingredients copied!');
+  };
+
   return (
     <div>
       <Helmet>
@@ -93,6 +110,11 @@ const RecipeDetails = () => {
           alt={title}
           className="w-full h-64 md:h-[600px] object-cover rounded-md"
         />
+
+
+
+
+{/* 
         <h2 className="text-3xl font-bold">{title}</h2>
         <p>
           <strong>Cuisine:</strong> {cuisine}
@@ -115,19 +137,84 @@ const RecipeDetails = () => {
         <div>
           <h3 className="text-xl font-semibold">Instructions</h3>
           <p>{instructions}</p>
+        </div> */}
+{/* from ai  */}
+
+
+
+
+ <div className="space-y-6 p-4">
+
+      <h2 className="text-4xl font-bold flex items-center gap-2 text-blue-400">
+        <FaUtensils /> {title}
+      </h2>
+
+      <p className="flex items-center gap-2 text-lg">
+        <GiKnifeFork className="text-green-500" />
+        <strong>Cuisine:</strong> {cuisine}
+      </p>
+
+      <p className="flex items-center gap-2 text-lg">
+        <FaClock className="text-blue-500" />
+        <strong>Preparation Time:</strong> {prepTime} mins
+      </p>
+
+      <div>
+        <h3 className="flex items-center gap-2 text-xl font-semibold text-purple-600 mb-2">
+          <MdCategory /> Categories
+        </h3>
+        <ul className="list-disc list-inside pl-2 space-y-1">
+          {categories.map((cat, i) => (
+            <li key={i} className="hover:text-green-500 cursor-pointer transition">
+              {cat}
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div className="border-t border-gray-300 pt-4">
+        <div className="flex items-center justify-between">
+          <h3 className="flex items-center gap-2 text-xl font-semibold text-orange-600">
+            <FaListUl /> Ingredients
+          </h3>
+          <button
+            onClick={handleCopyIngredients}
+            className="flex items-center gap-1 text-sm bg-green-100 px-3 py-1 rounded-lg hover:bg-green-200 transition"
+          >
+            <FiCopy /> Copy
+          </button>
         </div>
+        <p className="mt-2 hover:text-gray-600 transition">{ingredients}</p>
+      </div>
+
+      <div className="border-t border-gray-300 pt-4">
+        <h3 className="flex items-center gap-2 text-xl font-semibold text-blue-600">
+          <FaTasks /> Instructions
+        </h3>
+        <p className="mt-2 hover:text-gray-600 transition">{instructions}</p>
+      </div>
+
+    </div>
+
+
+
+
+
+{/* from ai  */}
+
+
 
         {user && userEmail == email ? (
           <div className="flex items-center gap-1 justify-around">
             <p className="text-gray-500 font-bold">Like count : {likes}</p>
             <Link
-              className="btn rounded-full mx-auto py-7 bg-blue-50 hover:bg-blue-400 hover:text-white "
+              className="btn rounded-full mx-auto py-7 hover:bg-blue-400 hover:text-white "
               to={`/update/${id}`}
             >
               <FaEdit size={25} />
             </Link>
             <button
-              className="btn rounded-full mx-auto py-7 bg-blue-50 hover:bg-red-400 hover:text-white "
+              className="btn rounded-full mx-auto py-7 hover:bg-red-400 hover:text-white "
               onClick={() => handleDelete(id)}
             >
               <MdDeleteOutline size={25} />

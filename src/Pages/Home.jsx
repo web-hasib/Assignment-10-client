@@ -6,6 +6,8 @@ import TopCard from "../components/TopCard";
 import { Helmet } from "react-helmet";
 import FAQ from "../components/FAQ";
 import FeaturedChefs from "../components/Chefs";
+import TestimonialCarousel from "../components/TestimonialCarousel";
+import Newsletter from "../components/Newsleter";
 
 const Home = () => {
   const data = useLoaderData();
@@ -48,6 +50,12 @@ const Home = () => {
       </section>
       <section>
         <FeaturedChefs></FeaturedChefs>
+      </section>
+      <section>
+        <TestimonialCarousel></TestimonialCarousel>
+      </section>
+      <section className="pb-10">
+        <Newsletter></Newsletter>
       </section>
     </div>
   );

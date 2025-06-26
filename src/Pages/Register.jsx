@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router";
 import { AuthContext } from './../Provider/AuthProvider';
 import Swal from "sweetalert2";
 import { Helmet } from "react-helmet";
+import { Slide } from "react-awesome-reveal";
 
 
 const Register = () => {
@@ -131,8 +132,10 @@ const Register = () => {
       <Helmet>
         <title>RecipeBook || Register</title>
       </Helmet>
+       <Slide direction="right">
+
       <div className="flex justify-center min-h-10/12 items-center">
-        <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-sm hover:shadow-md">
+        <div className="card bg-base-100/20 w-full max-w-sm shrink-0 shadow-sm hover:shadow-md">
           <h2 className="font-semibold text-2xl text-center py-5">
             Register your Account
           </h2>
@@ -143,7 +146,7 @@ const Register = () => {
               <input
                 name="name"
                 type="text"
-                className="input"
+                className="input rounded-lg"
                 placeholder="Your Name"
                 required
               />
@@ -153,7 +156,7 @@ const Register = () => {
               <input
                 name="image"
                 type="text"
-                className="input"
+                className="input rounded-lg"
                 placeholder="Image URL"
                 required
               />
@@ -162,7 +165,7 @@ const Register = () => {
               <input
                 name="email"
                 type="email"
-                className="input"
+                className="input rounded-lg"
                 placeholder="Email"
                 required
               />
@@ -171,7 +174,7 @@ const Register = () => {
               <input
                 name="password"
                 type="password"
-                className="input"
+                className="input rounded-lg"
                 placeholder="Password"
                 required
               />
@@ -180,7 +183,7 @@ const Register = () => {
                 <a className="link link-hover">Forgot password?</a>
               </div>
               
-              <button type="submit" className="btn btn-neutral mt-4">
+              <button type="submit" className="btn btn-soft border-blue-300 rounded-lg px-7 hover:text-white btn-info mt-4">
                 Register
               </button>
             </fieldset>
@@ -205,6 +208,7 @@ const Register = () => {
             </p>
         </div>
       </div>
+       </Slide>
     </div>
   );
 };

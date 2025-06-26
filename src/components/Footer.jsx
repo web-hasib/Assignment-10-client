@@ -31,14 +31,7 @@ const Footer = ({ theme }) => {
           {" "}
           All Recipes
         </NavLink>
-        <NavLink className="hover:text-black hover:font-bold" to="/addRecipe">
-          {" "}
-          Add Recipe
-        </NavLink>
-        <NavLink className="hover:text-black hover:font-bold" to="/myRecipes">
-          {" "}
-          My Recipes
-        </NavLink>
+       
         <NavLink className="hover:text-black hover:font-bold" to="/about">
           {" "}
           About

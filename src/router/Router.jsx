@@ -15,6 +15,7 @@ import About from "../Pages/About";
 import Loading from "../Pages/Loading";
 import Dashboard from "../Layouts/Dashboard";
 import DashboardHome from "../Pages/DashboardHome";
+import Contact from "../Pages/Contact";
 
 export const router = createBrowserRouter([
   {
@@ -78,6 +79,10 @@ export const router = createBrowserRouter([
         path: "about",
         element: <About></About>,
       },
+      {
+        path:'contact',
+        element: <Contact></Contact>
+      }
     ],
   },
   {
@@ -87,10 +92,8 @@ export const router = createBrowserRouter([
     </PrivateRoute>,
     children:[
       {
-        index:true,
-                loader: () =>
-          fetch("https://recipe-book-server-gold.vercel.app/recipes"),
-        hydrateFallbackElement: <Loading></Loading>,
+        path:'stat',
+      
         element:<DashboardHome/>
       },
             {

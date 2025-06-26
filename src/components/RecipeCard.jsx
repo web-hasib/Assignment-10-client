@@ -6,7 +6,7 @@ const RecipeCard = ({ recipe }) => {
   const { image, title, likeCount, cuisine, ingredients, _id } = recipe;
   return (
     <div>
-      <div className="card bg-white/80 shadow-sm h-full">
+      <div className="card bg-white/40 shadow-sm h-full">
         <figure>
           <img
             className="h-96 max-h-60 md:h-52 w-full object-cover rounded-t-lg"
@@ -27,7 +27,7 @@ const RecipeCard = ({ recipe }) => {
             <Link
               to={`/recipes/${_id}`}
               className="btn bg-green-200
-         border-green-300 rounded-2xl px-5 hover:text-white hover:bg-green-400"
+         border-green-300 rounded-2xl px-5 text-black/80 hover:text-white hover:bg-green-400"
             >
               Details
             </Link>

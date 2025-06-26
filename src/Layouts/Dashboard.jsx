@@ -5,6 +5,7 @@ import { AuthContext } from "../Provider/AuthProvider";
 import { LuSunMoon } from "react-icons/lu";
 import { CiLight } from "react-icons/ci";
 import Swal from "sweetalert2";
+import { FaChartPie, FaPlusCircle, FaBookOpen } from "react-icons/fa";
 
 const Dashboard = () => {
   const { user, logOut } = use(AuthContext);
@@ -153,18 +154,26 @@ const Dashboard = () => {
 
        
 
-          <NavLink className="hover:text-black hover:font-bold" to="/dashboard">
-            Dashboard
-          </NavLink>
+         <NavLink
+        className="flex pl-3 items-center text-xl gap-2 hover:text-black hover:font-bold"
+        to="/dashboard/stat"
+      >
+        <FaChartPie /> Dashboard
+      </NavLink>
 
-          <NavLink className="hover:text-black hover:font-bold" to="/dashboard/addRecipe">
-            {" "}
-            Add Recipe
-          </NavLink>
-          <NavLink className="hover:text-black hover:font-bold" to="/dashboard/myRecipes">
-            {" "}
-            My Recipes
-          </NavLink>
+      <NavLink
+        className="flex pl-3 items-center text-xl gap-2 hover:text-black hover:font-bold"
+        to="/dashboard/addRecipe"
+      >
+        <FaPlusCircle /> Add Recipe
+      </NavLink>
+
+      <NavLink
+        className="flex pl-3 items-center text-xl gap-2 hover:text-black hover:font-bold"
+        to="/dashboard/myRecipes"
+      >
+        <FaBookOpen /> My Recipes
+      </NavLink>
         </ul>
       </div>
     </div>

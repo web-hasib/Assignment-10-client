@@ -72,7 +72,7 @@ const Login = () => {
       </Helmet>
       <div className="py-20">
         <div className="flex justify-center items-center">
-          <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow hover:shadow-md">
+          <div className="card bg-base-100/20 w-full max-w-sm shrink-0 shadow hover:shadow-md">
             <h2 className="font-semibold text-2xl text-center py-5">
               Login your Account
             </h2>
@@ -82,7 +82,7 @@ const Login = () => {
                 <input
                   name="email"
                   type="email"
-                  className="input"
+                  className="input rounded-lg"
                   placeholder="Email"
                   required
                 />
@@ -90,7 +90,7 @@ const Login = () => {
                 <input
                   name="password"
                   type="password"
-                  className="input"
+                  className="input rounded-lg"
                   placeholder="Password"
                   required
                 />
@@ -98,7 +98,9 @@ const Login = () => {
                   <a className="link link-hover">Forgot password?</a>
                 </div>
 
-                <button type="submit" className="btn btn-neutral mt-4">
+        
+
+                <button type="submit" className="btn btn-soft border-blue-300 rounded-lg px-7 hover:text-white btn-info mt-4">
                   Login
                 </button>
               </fieldset>
